@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KMM 2. Praktika - Streaming</title>
+    <link rel="stylesheet" href="css/bideo.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+    Bideoak HTML5 ekin funtzionatzen
+
+    <div class = "contenedor">
+      <video controls>
+        <source src="bideoak/bideo_prueba.mp4" type="video/mp4" />
+        <source src="bideoak/bideo_prueba.mp4" type="video/ogg" /> <!-- Se compara si con otra extensión deja -->
+        Tu navegador no es compatible con vídeos HTML5.
+      </video>
+
+      <br>
+
+        Bideoak videojs erabiltzen
+
+        <video class="fm-video video-js vjs-16-9 vjs-big-play-centered" data-setup="{}" controls id="fm-video">
+            <source src="bideoak/bideo_prueba.mp4" type="video/mp4">
+            <source src="bideoak/bideo_prueba.mp4" type="video/ogg" /> <!-- Se compara si con otra extensión deja -->
+            Tu navegador no es compatible con vídeos HTML5.
+        </video>
+
+        <script>
+		    var reproductor = videojs('fm-video', {
+			    fluid: true
+		    });
+	    </script>
+    </div>
+
+  </body>
+</html>
