@@ -1,28 +1,108 @@
-* {
-	padding: 0;
-	margin: 0;
-}
-
+/* General styles */
 body {
-	background: #F4F4FA;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif; /* Cambiar la tipografía */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #000428, #004e92);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #fff;
 }
 
-header {
-	background: #1D87D8;
-	color: #fff;
+/* Animación para el fondo */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contenedor principal de los vídeos */
+.contenedor {
+    display: flex; /* Usamos flexbox */
+    flex-direction: column; /* Orientación vertical (primero el texto, luego el vídeo) */
+    justify-content: center; /* Centrar el contenido verticalmente */
+    align-items: center; /* Centrar el contenido horizontalmente */
+    text-align: center; /* Alineación de texto */
+    padding: 20px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    max-width: 850px;
+    height: auto;
+    min-height: 300px;
+	box-shadow: 0px 0 12px rgba(255, 255, 255, 0.5);
+}
+
+/* Estilo para los textos dentro del contenedor */
+.contenedor h2 {
+    margin-bottom: 20px; /* Espacio entre el texto y el vídeo */
+    color: #fff; /* Ajusta el color para contraste */
+    font-size: 1.5rem; /* Tamaño del texto */
+}
+
+h1 {
+    margin-bottom: 32px; /* Espacio entre el texto y el vídeo */
+    color: #fff; /* Ajusta el color para contraste */
+    font-size: 2.5rem; /* Tamaño del texto */
 	text-align: center;
-	padding: 50px 0;
-	height: 400px;
-	position: absolute;
-	top: 0;
-	width: 100%;
 }
 
-header .titulo {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
+p {
+    margin-bottom: 12px; /* Espacio entre el texto y el vídeo */
+    color: #fff; /* Ajusta el color para contraste */
+    font-size: 1.25rem; /* Tamaño del texto */
+	margin-left: 1.5cm;
 }
+
+.container p {
+    margin-bottom: 12px; /* Espacio entre el texto y el vídeo */
+    color: #fff; /* Ajusta el color para contraste */
+    font-size: 1.25rem; /* Tamaño del texto */
+}
+
+.menu h2 {
+	margin-top: 12px; /* Espacio entre el texto y el vídeo */
+    color: #fff; /* Ajusta el color para contraste */
+    font-size: 1.5rem; /* Tamaño del texto */
+	text-align: center;
+}
+
+/* Menú de navegación */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 5px 0 7px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 10px 0;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+	margin-left: 7px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Espacio para el contenido */
+body {
+    margin-left: 220px;
+	box-shadow: #ffffff;
+}
+
 
 /*
     NO ESTAMOS USANDO MAIN
@@ -42,22 +122,22 @@ main .contenedor {
 /* Estilos CSS del Reproductor */
 /* ------------------------- */
 .fm-video {
-	width: 100%;
+	/* width: 100%; */
 	box-shadow: 0px 0px 6px 0px rgba(0,0,0,.5);
 }
 
 .fm-video .vjs-control-bar {
 	background: #F4F4F4;
-	color: #2d5f85;
+	color: #00d9ff;
 }
 
 .fm-video .vjs-play-progress,
 .fm-video .vjs-volume-level {
-	background: #1d87d8;
+	background: #00d9ff;
 }
 
 .fm-video .vjs-slider {
-	background: #2d5f85;
+	background: #00d9ff;
 }
 
 .video-js:hover .vjs-big-play-button {
@@ -98,7 +178,7 @@ article h2 {
 	margin-bottom: 20px;
 } */
 
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 	header {
 		position: relative;
 		height: auto;
@@ -107,4 +187,4 @@ article h2 {
 	main {
 		margin-top: 50px;
 	}
-} */
+}

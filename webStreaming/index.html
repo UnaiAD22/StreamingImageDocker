@@ -5,36 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>KMM 2. Praktika - Streaming</title>
-    <link rel="stylesheet" href="css/bideo.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" type="module"></script>
+    <link rel="stylesheet" href="css/bideo.css">
+    <script src="https://vjs.zencdn.net/7.21.0/video.min.js"></script>
+    <link href="https://vjs.zencdn.net/7.21.0/video-js.css" rel="stylesheet" />
+    <link rel="icon" href="img/LiveStreamingIcon.png" type="image/x-icon">
 </head>
 <body>
-    Bideoak HTML5 ekin funtzionatzen
+    <!-- Menú de navegación -->
+    <nav class="menu">
+      <h2>Bezeroak:</h2>
+        <a href="#html5-video">- HTML5</a>
+        <a href="#videojs-video">- Video.js</a>
+		<a href="#streaming_video">- Streaming</a>
+    </nav>
 
-    <div class = "contenedor">
-      <video controls>
-        <source src="bideoak/bideo_prueba.mp4" type="video/mp4" />
-        <source src="bideoak/bideo_prueba.mp4" type="video/ogg" /> <!-- Se compara si con otra extensión deja -->
-        Tu navegador no es compatible con vídeos HTML5.
-      </video>
+    <br>
 
-      <br>
+    <h1><u>KMM - 2. PRAKTIKA - Streaming</u></h1>
 
-        Bideoak videojs erabiltzen
+    <br>
 
-        <video class="fm-video video-js vjs-16-9 vjs-big-play-centered" data-setup="{}" controls id="fm-video">
-            <source src="bideoak/bideo_prueba.mp4" type="video/mp4">
-            <source src="bideoak/bideo_prueba.mp4" type="video/ogg" /> <!-- Se compara si con otra extensión deja -->
+    <p>Texto insertar futuro</p>
+
+    <br>
+
+    <!-- Sección de videos -->
+    <div class="contenedor" id="html5-video">
+        <h2>Bideoak <u><i>HTML5</u></i>-ekin erabiltzen</h2>
+        
+        <p>Texto insertar futuro</p>
+
+        <br>
+
+        <video width="750" controls>
+            <source src="bideoak/bideo_prueba.mp4" type="video/mp4" />
+            <source src="bideoak/bideo_prueba.ogg" type="video/ogg" />
             Tu navegador no es compatible con vídeos HTML5.
         </video>
-
-        <script>
-		    var reproductor = videojs('fm-video', {
-			    fluid: true
-		    });
-	    </script>
     </div>
 
-  </body>
+    <div class="contenedor" id="videojs-video">
+        <h2>Bideoak <u><i>Video.js</u></i>-rekin erabiltzen</h2>
+        
+        <p>Texto insertar futuro</p>
+
+        <br>
+
+        <video id="fm-video" class="fm-video video-js" controls preload="auto" data-setup='{}' width="750">
+            <source src="bideoak/bideo_prueba.mp4" type="video/mp4">
+            <source src="bideoak/bideo_prueba.ogg" type="video/ogg">
+            Tu navegador no es compatible con vídeos HTML5.
+        </video>
+    </div>
+
+	<div class="contenedor" id="streaming_video">
+		<h2><u><i>STREAMING</u></i>-a</h2>
+		
+		<p>Texto insertar aqui</p>
+		
+		<br>
+		
+    <main>
+        <div id="video-container">
+            <video id="streamingVideo" controls autoplay width="750"></video>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        // Configurar el reproductor de HLS
+        const video = document.getElementById('streamingVideo');
+        const streamUrl = 'http://localhost/hls/stream.m3u8'; // URL del streaming HLS
+
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(streamUrl);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = streamUrl;
+            video.addEventListener('loadedmetadata', function () {
+                video.play();
+            });
+        } else {
+            console.error('HLS ezin da erreproduzitu.');
+        }
+    </script>
+	</div>
+</body>
 </html>
