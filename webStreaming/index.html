@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>KMM 2. Praktika - Streaming</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bideo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/LiveStreamingIcon.png" type="image/x-icon">
+    <link href="css/style.css" rel="stylesheet" >
+    <link href="css/bideo.css" rel="stylesheet" >
     <!-- Agrega el script de Video.js -->
     <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
-    <link rel="icon" href="img/LiveStreamingIcon.png" type="image/x-icon">
 </head>
 <body>
     <!-- Menú de navegación -->
@@ -28,15 +29,14 @@
 
     <br>
 
-    <p>Texto insertar futuro</p>
+    <p>KMM (Komunikazio Mugikorrak eta Multimedia) irakasgaiaren ariketa honek <a href="https://nginx.org/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold; font-style: italic;">NGINX</a> erabiliz webgune bat sortzea du helburu. Webgune honetan bi bideo-erreproduzitzaile desberdin (kasu honetan, <a href="https://www.w3schools.com/html/html5_video.asp" target="_blank" style="color: white; text-decoration: underline; font-weight: bold; font-style: italic;">HTML5</a> eta <a href="https://videojs.com/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold; font-style: italic;">Video.js</a>) izango dira; bideo bat, zeinetan kalitatea aldatu ahal izango den, eta atal bat, non zuzenean transmititu ahal izango den kamera edo pantaila, <a href="https://obsproject.com/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold; font-style: italic;">OBS</a> erabiliz...</p>
 
     <br>
 
-    <!-- Sección de videos -->
     <div class="contenedor" id="html5-video">
         <h2>Bideoak <u><i>HTML5</u></i>-ekin erabiltzen</h2>
         
-        <p>Texto insertar futuro</p>
+        <p><a href='https://www.w3schools.com/html/html5_video.asp' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>HTML5</a>-ko erreproduzitzailea erabiltzea erabaki da bideoetarako, sinplea eta eraginkorra delako. Nabigatzaile askok erabiltzen dute, ez baitu plugina gehigarriak behar bideoak erreproduzitzeko; hala ere, pertsonalizatu nahi izanez gero, mugatua da.</p>
 
         <br>
 
@@ -50,7 +50,7 @@
     <div class="contenedor" id="videojs-video">
         <h2>Bideoak <u><i>Video.js</u></i>-rekin erabiltzen</h2>
         
-        <p>Texto insertar futuro</p>
+        <p><a href='https://videojs.com/' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>Video.js</a>-ko erreproduzitzailea osoagoa da, izan ere, pertsonalizazio zabalagoa izateaz gain, bideo-formatu gehiago onartzen ditu eta streaming zerbitzuekin integrazioa bezalako funtzio gehigarriak txertatzeko gaitasuna du.</p>
 
         <br>
 
@@ -64,10 +64,14 @@
     <div class="contenedor" id="kalitate_aldaketa">
         <h2>Bideoaren <u><i>kalitate aldaketa</u></i></h2>
 
-        <p>Texto insertar aquí</p>
+        <p>Praktika honen beste helburu bat aurrez kargatuta zeuden bideoen kalitatea aldatzea da. Kalitate-aldaketa aplikatzeko, kanpoko komando bat exekutatu behar izan da <a href='https://www.ffmpeg.org/' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>ffmpeg</a>-rekin, eta, emandako bideo baten kasuan, bideo horri aplikatu nahi genizkion kalitate kopuruaren bertsioak sortzen ditu. Hau egindakoan, <i>option</i> etiketaren barruan eskuragarri dauden aukerak agertzen dira, eta bat hautatzean, bideoa kalitate horretan erreproduzituko da. Aplikatutako kalitateak honako hauek izan dira: <b>144p</b>, <b>240p</b>, <b>360p</b>, <b>480p</b>, <b>720p (HD)</b>, <b>1080p (Full HD)</b>, <b>1440p (2K)</b> eta <b>2160p (4K)</b>.</p>
+
         <br>
 
-        <!-- Reproductor de Video.js -->
+        <p>Aipatzekoa da, halaber, beste bideo bat erabili dela bideoaren kalitate-aldaketa hobeto nabarmentzeko.</p>
+
+        <br>
+
         <video id="videoPlayer" class="fm-video video-js" controls preload="auto" width="750">
             <source src="bideoa_kalitate_aldaketa/1080p.m3u8" type="application/x-mpegURL" data-quality="1080p">
         </video>
@@ -89,7 +93,6 @@
         const videoPlayer = videojs('videoPlayer'); // Inicializar Video.js
         const qualitySelector = document.getElementById('qualitySelector');
 
-        // Cambiar la calidad cuando se selecciona una opción
         qualitySelector.addEventListener('change', (event) => {
             const selectedQuality = event.target.value;
 
@@ -105,9 +108,9 @@
     </div>
 
 	<div class="contenedor" id="streaming_video">
-		<h2><u><i>STREAMING</u></i>-a</h2>
+		<h2>Ikusi <u><i>STREAMING</u></i>-a hemen!</h2>
 		
-		<p>Texto insertar aqui</p>
+		<p>Praktika honen azken helburua bideo bat zuzenean transmititzea da (streaminga edo kameratik bertatik). <a href='https://videojs.com/' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>Video.js</a> aurretik ere erabili zenez eta streaming funtzioa duenez, kasu honetan ere baliatu da. Gainera, <a href='https://www.ffmpeg.org/' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>ffmpeg</a> erabili da unean bertan transmititzen ari den bideo bat <a href='https://wave.video/es/blog/rtmp-guide/' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>RTMP</a> zerbitzarien bidez HLS protokolora bihurtzeko. Horrela, bideo hori webgune batean denbora errealean erreproduzitu ahal izango da <a href='https://www.dacast.com/es/blog-es/hls-streaming-protocolo/' target='_blank' style='color: white; text-decoration: underline; font-weight: bold; font-style: italic;'>HLS</a> erabiliz.</p>
 		
 		<br>
 		
