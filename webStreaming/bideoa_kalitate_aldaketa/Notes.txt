@@ -1,0 +1,1 @@
+To view the video in different quality, run the .sh file located in the "webStreaming" folder.
