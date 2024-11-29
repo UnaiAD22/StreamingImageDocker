@@ -1,7 +1,8 @@
 /* General styles */
 body {
     font-family: 'Arial', sans-serif; /* Cambiar la tipografía */
-    margin: 0;
+    margin-left: 220px;
+	box-shadow: #ffffff;
     padding: 0;
     background: linear-gradient(45deg, #000428, #004e92);
     background-size: 400% 400%;
@@ -95,96 +96,4 @@ nav a {
 
 nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Espacio para el contenido */
-body {
-    margin-left: 220px;
-	box-shadow: #ffffff;
-}
-
-
-/*
-    NO ESTAMOS USANDO MAIN
-*/
-
-/* main {
-	margin-top: 150px;
-}
-
-main .contenedor {
-	width: 90%;
-	max-width: 1000px;
-	margin: auto;
-} */
-
-/* ------------------------- */
-/* Estilos CSS del Reproductor */
-/* ------------------------- */
-.fm-video {
-	/* width: 100%; */
-	box-shadow: 0px 0px 6px 0px rgba(0,0,0,.5);
-}
-
-.fm-video .vjs-control-bar {
-	background: #F4F4F4;
-	color: #00d9ff;
-}
-
-.fm-video .vjs-play-progress,
-.fm-video .vjs-volume-level {
-	background: #00d9ff;
-}
-
-.fm-video .vjs-slider {
-	background: #00d9ff;
-}
-
-.video-js:hover .vjs-big-play-button {
-	background: rgba(0,0,0,.2);
-}
-
-.fm-video .vjs-big-play-button {
-	background: rgba(0,0,0,.2);
-	width: 80px;
-	height: 80px;
-	line-height: 80px;
-	border-radius: 100%;
-	border:none;
-}
-
-.fm-video .vjs-big-play-button:hover {
-	background: rgba(0,0,0,.5);
-}
-
-
-/*
-    ESTO SE PUEDE QUITAR PORQUE ARTÍCULOS NO ESTAMOS USANDO
-*/
-
-/* article {
-	margin: 50px 0;
-	background: #fff;
-	color: #000;
-	font-size: 16px;
-	line-height: 28px;
-	padding: 40px;
-}
-
-article h2 {
-	color: #2D5F85;
-	font-size: 32px;
-	font-weight: normal;
-	margin-bottom: 20px;
-} */
-
-@media screen and (max-width: 600px) {
-	header {
-		position: relative;
-		height: auto;
-	}
-
-	main {
-		margin-top: 50px;
-	}
 }

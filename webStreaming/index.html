@@ -43,7 +43,7 @@
         <video width="750" controls>
             <source src="bideoak/bideoa1.mp4" type="video/mp4" />
             <source src="bideoak/bideoa1.ogg" type="video/ogg" />
-            Tu navegador no es compatible con vídeos HTML5.
+            Zure nabegatzailea ez da bateragarria bideoak HTML5-ean erreproduzitzeko.
         </video>
     </div>
 
@@ -57,7 +57,7 @@
         <video id="fm-video" class="fm-video video-js" controls preload="auto" data-setup='{}' width="750">
             <source src="bideoak/bideoa1.mp4" type="video/mp4">
             <source src="bideoak/bideoa1.ogg" type="video/ogg">
-            Tu navegador no es compatible con vídeos HTML5.
+            Zure nabegatzailea ez da bateragarria bideoak Videojs-rekin HTML5-ean erreproduzitzeko.
         </video>
     </div>
 	
@@ -68,7 +68,7 @@
         <br>
 
         <!-- Reproductor de Video.js -->
-        <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="auto" width="750">
+        <video id="videoPlayer" class="fm-video video-js" controls preload="auto" width="750">
             <source src="bideoak/1080p.m3u8" type="application/x-mpegURL" data-quality="1080p">
         </video>
         
@@ -82,13 +82,14 @@
             <option value="720p.m3u8">720p</option>
             <option value="1080p.m3u8" selected>1080p</option>
             <option value="1440p.m3u8">1440p</option>
+            <option value="2160p.m3u8">2160p</option>
         </select>
 
     <script>
-        const videoPlayer = videojs('videoPlayer'); // Inicializa Video.js
+        const videoPlayer = videojs('videoPlayer'); // Inicializar Video.js
         const qualitySelector = document.getElementById('qualitySelector');
 
-        // Cambiar la calidad al seleccionar una opción
+        // Cambiar la calidad cuando se selecciona una opción
         qualitySelector.addEventListener('change', (event) => {
             const selectedQuality = event.target.value;
 

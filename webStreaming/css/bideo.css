@@ -1,8 +1,39 @@
-/* Botón de reproducción grande en el centro */
+/*
+    ESTILO PARA EL SELECTOR
+*/
+
+#qualitySelector {
+    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #00d9ff;
+    border-radius: 5px;
+    background-color: rgba(115, 133, 159, 0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+  
+#qualitySelector:hover {
+    border-color: #00d9ff;
+    background-color: #96a3af;
+    color: #000000;
+}
+  
+#qualitySelector:focus {
+    border-color: #00d9ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(115, 133, 159, 0.5);
+}
+
+/*
+    ESTILO PARA EL VIDEOJS
+*/
+
 .video-js .vjs-big-play-button {
-    background: rgba(0, 0, 0, 0.2); /* Fondo translúcido oscuro */
-    border-radius: 50%; /* Forma circular */
-    width: 80px; /* Tamaño del botón */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 80px;
     height: 80px;
     line-height: 80px;
     border: none;
@@ -10,43 +41,38 @@
 }
 
 .video-js .vjs-big-play-button:hover {
-    background: rgba(0, 0, 0, 0.5); /* Efecto al pasar el ratón */
+    background: rgba(0, 0, 0, 0.5);
 }
 
-/* Barra de control blanca */
 .video-js .vjs-control-bar {
-    background: #FFFFFF; /* Blanco */
-    color: #00d9ff; /* Color de los iconos */
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave arriba */
+    background: #FFFFFF;
+    color: #00d9ff;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Barra de progreso */
 .video-js .vjs-play-progress {
-    background: #1D87D8; /* Azul intenso para el progreso */
+    background: #1D87D8;
 }
 
 .video-js .vjs-load-progress {
-    background: rgba(115, 133, 159, 0.5); /* Azul claro para la carga */
+    background: rgba(115, 133, 159, 0.5);
 }
 
 .video-js .vjs-volume-level {
-    background: #1D87D8; /* Azul intenso para el nivel de volumen */
+    background: #1D87D8;
 }
 
-/* Fondo de las barras de volumen y progreso */
 .video-js .vjs-slider {
-    background: #DDDDDD; /* Gris claro */
+    background: #DDDDDD;
 }
 
-/* Bordes redondeados y sombra para los vídeos */
 .video-js,
 video {
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en todos los lados */
-    overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-/* Centrar texto de error o indicaciones */
 .video-js .vjs-no-js {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -55,12 +81,11 @@ video {
     padding: 20px;
 }
 
-/* Ajustes para el diseño responsivo */
 .fm-video.vjs-16-9 {
-    padding-top: 56.25%; /* Proporción 16:9 */
+    padding-top: 56.25%;
 }
 
 .video-js .vjs-fullscreen-control {
     cursor: pointer;
-    color: #00d9ff; /* Azul para el icono de pantalla completa */
+    color: #00d9ff;
 }
