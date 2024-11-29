@@ -7,8 +7,9 @@
     <title>KMM 2. Praktika - Streaming</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bideo.css">
-    <script src="https://vjs.zencdn.net/7.21.0/video.min.js"></script>
-    <link href="https://vjs.zencdn.net/7.21.0/video-js.css" rel="stylesheet" />
+    <!-- Agrega el script de Video.js -->
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
     <link rel="icon" href="img/LiveStreamingIcon.png" type="image/x-icon">
 </head>
 <body>
@@ -17,6 +18,7 @@
       <h2>Bezeroak:</h2>
         <a href="#html5-video">- HTML5</a>
         <a href="#videojs-video">- Video.js</a>
+		<a href="kalitate_aldaketa">- Bideoaren kalitate aldaketa</a>
 		<a href="#streaming_video">- Streaming</a>
     </nav>
 
@@ -39,8 +41,8 @@
         <br>
 
         <video width="750" controls>
-            <source src="bideoak/bideo_prueba.mp4" type="video/mp4" />
-            <source src="bideoak/bideo_prueba.ogg" type="video/ogg" />
+            <source src="bideoak/bideoa1.mp4" type="video/mp4" />
+            <source src="bideoak/bideoa1.ogg" type="video/ogg" />
             Tu navegador no es compatible con vídeos HTML5.
         </video>
     </div>
@@ -53,10 +55,52 @@
         <br>
 
         <video id="fm-video" class="fm-video video-js" controls preload="auto" data-setup='{}' width="750">
-            <source src="bideoak/bideo_prueba.mp4" type="video/mp4">
-            <source src="bideoak/bideo_prueba.ogg" type="video/ogg">
+            <source src="bideoak/bideoa1.mp4" type="video/mp4">
+            <source src="bideoak/bideoa1.ogg" type="video/ogg">
             Tu navegador no es compatible con vídeos HTML5.
         </video>
+    </div>
+	
+    <div class="contenedor" id="kalitate_aldaketa">
+        <h2>Bideoaren <u><i>kalitate aldaketa</u></i></h2>
+
+        <p>Texto insertar aquí</p>
+        <br>
+
+        <!-- Reproductor de Video.js -->
+        <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="auto" width="750">
+            <source src="bideoak/1080p.m3u8" type="application/x-mpegURL" data-quality="1080p">
+        </video>
+        
+        <br>
+
+        <select id="qualitySelector">
+            <option value="144p.m3u8">144p</option>
+            <option value="240p.m3u8">240p</option>
+            <option value="360p.m3u8">360p</option>
+            <option value="480p.m3u8">480p</option>
+            <option value="720p.m3u8">720p</option>
+            <option value="1080p.m3u8" selected>1080p</option>
+            <option value="1440p.m3u8">1440p</option>
+        </select>
+
+    <script>
+        const videoPlayer = videojs('videoPlayer'); // Inicializa Video.js
+        const qualitySelector = document.getElementById('qualitySelector');
+
+        // Cambiar la calidad al seleccionar una opción
+        qualitySelector.addEventListener('change', (event) => {
+            const selectedQuality = event.target.value;
+
+            videoPlayer.pause();
+            videoPlayer.src({
+                src: `bideoak/${selectedQuality}`,
+                type: 'application/x-mpegURL'
+            });
+            videoPlayer.load();
+            videoPlayer.play();
+        });
+    </script>
     </div>
 
 	<div class="contenedor" id="streaming_video">
