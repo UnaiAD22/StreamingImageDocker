@@ -10,9 +10,3 @@ ffmpeg -i bideoak/bideoa2.mp4 \
 -vf scale=w=640:h=360 -c:v libx264 -b:v 500k -maxrate 750k -bufsize 1500k -g 48 -sc_threshold 0 -c:a aac -b:a 64k -ar 44100 -f hls -hls_time 4 -hls_playlist_type vod -hls_segment_filename bideoa_kalitate_aldaketa/360p_%03d.ts bideoa_kalitate_aldaketa/360p.m3u8 \
 -vf scale=w=426:h=240 -c:v libx264 -b:v 300k -maxrate 450k -bufsize 900k -g 48 -sc_threshold 0 -c:a aac -b:a 48k -ar 44100 -f hls -hls_time 4 -hls_playlist_type vod -hls_segment_filename bideoa_kalitate_aldaketa/240p_%03d.ts bideoa_kalitate_aldaketa/240p.m3u8 \
 -vf scale=w=256:h=144 -c:v libx264 -b:v 150k -maxrate 225k -bufsize 450k -g 48 -sc_threshold 0 -c:a aac -b:a 32k -ar 44100 -f hls -hls_time 4 -hls_playlist_type vod -hls_segment_filename bideoa_kalitate_aldaketa/144p_%03d.ts bideoa_kalitate_aldaketa/144p.m3u8
-
-
-# Procesar el stream RTMP y generar HLS
-sudo ffmpeg -i rtmp://localhost/live/stream -c:v libx264 -preset veryfast -b:v 3000k -maxrate 3000k -bufsize 6000k \
--vf "scale=-2:720" -g 50 -hls_time 4 -hls_playlist_type event \
--hls_segment_filename /usr/local/nginx/html/hls/stream%03d.ts /usr/local/nginx/html/hls/stream.m3u8
