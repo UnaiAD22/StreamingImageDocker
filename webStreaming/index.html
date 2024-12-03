@@ -118,32 +118,23 @@
 		
     <main>
         <div id="video-container">
-            <video id="streamingVideo" controls autoplay width="750"></video>
+            <video
+                id="streamingVideo"
+                class="video-js vjs-default-skin"
+                controls
+                autoplay
+                width="750"
+                data-setup='{}'>
+                <source src="http://localhost/hls/stream.m3u8" type="application/x-mpegURL">
+            </video>
+            
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
-        // Configurar el reproductor de HLS
-        const video = document.getElementById('streamingVideo');
-        const streamUrl = 'http://localhost/hls/stream.m3u8'; // URL del streaming HLS
-
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(streamUrl);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                video.play();
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = streamUrl;
-            video.addEventListener('loadedmetadata', function () {
-                video.play();
-            });
-        } else {
-            console.error('HLS ezin da erreproduzitu.');
-        }
+        const player = videojs('streamingVideo');
     </script>
+    
 	</div>
 </body>
 </html>
