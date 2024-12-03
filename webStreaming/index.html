@@ -12,6 +12,8 @@
     <!-- Agrega el script de Video.js -->
     <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+    <!-- El stylesheet del plugin de Video.js -->
+    <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
 </head>
 <body>
     <!-- Menú de navegación -->
@@ -73,39 +75,38 @@
         <br>
 
         <video id="videoPlayer" class="fm-video video-js" controls preload="auto" width="750">
-            <source src="bideoa_kalitate_aldaketa/master.m3u8" type="application/x-mpegURL">
+            <source src="bideoa_kalitate_aldaketa/master.m3u8" type="application/x-mpegURL" label="Auto">
+            <source src="bideoa_kalitate_aldaketa/144p.m3u8" type="application/x-mpegURL" label="140p">
+            <source src="bideoa_kalitate_aldaketa/240p.m3u8" type="application/x-mpegURL" label="240p">
+            <source src="bideoa_kalitate_aldaketa/360p.m3u8" type="application/x-mpegURL" label="360p">
+            <source src="bideoa_kalitate_aldaketa/480p.m3u8" type="application/x-mpegURL" label="480p">
+            <source src="bideoa_kalitate_aldaketa/720p.m3u8" type="application/x-mpegURL" label="720p">
+            <source src="bideoa_kalitate_aldaketa/1080p.m3u8" type="application/x-mpegURL" label="1080p">
+            <source src="bideoa_kalitate_aldaketa/1440p.m3u8" type="application/x-mpegURL" label="1440p">
+            <source src="bideoa_kalitate_aldaketa/2160p.m3u8" type="application/x-mpegURL" label="2160p">
         </video>
         
         <br>
 
-        <select id="qualitySelector">
-            <option value="144p.m3u8">144p</option>
-            <option value="240p.m3u8">240p</option>
-            <option value="360p.m3u8">360p</option>
-            <option value="480p.m3u8">480p</option>
-            <option value="720p.m3u8">720p</option>
-            <option value="1080p.m3u8">1080p</option>
-            <option value="1440p.m3u8">1440p</option>
-            <option value="2160p.m3u8">2160p</option>
-            <option value="master.m3u8" selected>Auto</option>
-        </select>
+    <!-- Obtain videojs plugin for quality selector -->
+    <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
 
     <script>
-        const videoPlayer = videojs('videoPlayer'); // Inicializar Video.js
-        const qualitySelector = document.getElementById('qualitySelector');
-
-        qualitySelector.addEventListener('change', (event) => {
-            const selectedQuality = event.target.value;
-
-            videoPlayer.pause();
-            videoPlayer.src({
-                src: `bideoa_kalitate_aldaketa/${selectedQuality}`,
-                type: 'application/x-mpegURL'
-            });
-            videoPlayer.load();
-            videoPlayer.play();
-        });
+        const options = {
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'progressControl',
+                    'volumePanel',
+                    'qualitySelector',  //kalitate aukeraketa
+                    'fullscreenToggle',
+                ],
+            },
+        };
+        const videoPlayer = videojs('videoPlayer', options); // Inicializar Video.js
     </script>
+
+
     </div>
 
 	<div class="contenedor" id="streaming_video">
